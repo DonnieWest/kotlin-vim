@@ -10,7 +10,7 @@ let b:did_indent = 1
 
 setlocal cinoptions& cinoptions+=j1,L0
 setlocal indentexpr=GetKotlinIndent()
-setlocal indentkeys=0},0),!^F,o,O,e,<CR>
+setlocal indentkeys=.,0},0),!^F,o,O,e,<CR>
 setlocal autoindent " TODO ?
 
 " TODO teach it to count bracket balance, etc.
@@ -23,6 +23,15 @@ function! GetKotlinIndent()
     let prev = getline(prev_num)
     let prev_indent = indent(prev_num)
     let cur = getline(v:lnum)
+    let indentkey = matchstr(getline(v:lnum), '\%' . (col('.') - 1) . 'c.')
+
+    if indentkey == '.'
+        if cur =~ '^\s*.\s*$'
+            return cindent(v:lnum)
+        else
+            return prev_indent
+        endif
+    endif
 
     if cur =~ '^\s*\*'
         return cindent(v:lnum)
