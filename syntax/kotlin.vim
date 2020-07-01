@@ -47,6 +47,8 @@ syn keyword ktModifier annotation companion enum inner internal private protecte
 syn keyword ktStructure class object interface typealias fun constructor init
 syn keyword ktDeclStruct val var
 
+syn keyword ktKeyword class object interface fun typealias nextgroup=ktItemName skipwhite skipempty
+
 syn keyword ktReservedKeyword typeof
 
 syn keyword ktBoolean true false
@@ -66,6 +68,7 @@ syn match ktDocTag "\v\@(author|constructor|receiver|return|since|suppress)>" co
 syn match ktDocTag "\v\@(exception|param|property|throws|see|sample)>\s*\S+" contains=ktDocTagParam contained
 syn match ktDocTagParam "\v(\s|\[)\S+" contained
 syn match ktComment "/\*\*/"
+syn match ktItemName "\v([a-zA-Z_][a-zA-Z0-9_]*|`[^`]+`)" contained
 
 syn match ktSpecialCharError "\v\\." contained
 syn match ktSpecialChar "\v\\([tbnr'"$\\]|u\x{4})" contained
@@ -117,6 +120,7 @@ hi def link ktModifier StorageClass
 hi def link ktStructure Structure
 hi def link ktDeclStruct Structure
 hi def link ktTypedef Typedef
+hi def link ktItemName Function
 
 hi def link ktBoolean Boolean
 hi def link ktConstant Constant
