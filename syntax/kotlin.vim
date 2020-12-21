@@ -44,11 +44,11 @@ syn keyword ktType UByteIterator UInt UIntArray UIntIterator UIntProgression UIn
 syn keyword ktType UninitializedPropertyAccessException Unit UnsafeVariance UnsupportedOperationException UseExperimental Volatile
 
 syn keyword ktModifier annotation companion enum inner internal private protected public abstract final open override sealed vararg dynamic expect actual
-syn keyword ktStructure class object interface typealias fun constructor init
+syn keyword ktStructure class object interface typealias nextgroup=ktClassName skipwhite skipempty
 syn keyword ktDeclStruct val var
+syn keyword ktKeyword constructor init
 
 syn keyword ktStructure fun nextgroup=ktItemName skipwhite skipempty
-syn keyword ktKeyword class object interface typealias nextgroup=ktClassName skipwhite skipempty
 
 syn keyword ktReservedKeyword typeof
 
