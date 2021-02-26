@@ -84,8 +84,8 @@ syn match ktType "\v\:\s?\w+\s?[\<\>\)\,\=\s\{]"hs=s+1,ms=s+1,he=e-1,me=e-1
 
 syn match ktSpecialCharError "\v\\." contained
 syn match ktSpecialChar "\v\\([tbnr'"$\\]|u\x{4})" contained
-syn region ktString start='"' skip='\\"' end='"' contains=ktSimpleInterpolation,ktComplexInterpolation,ktSpecialChar,ktSpecialCharError
-syn region ktString start='"""' end='""""*' contains=ktSimpleInterpolation,ktComplexInterpolation
+syn region ktString start='"' skip='\\"' end='"' contains=ktSimpleInterpolation,ktComplexInterpolation,ktSpecialChar,ktSpecialCharError,@Spell
+syn region ktString start='"""' end='""""*' contains=ktSimpleInterpolation,ktComplexInterpolation,@Spell
 syn match ktCharacter "\v'[^']*'" contains=ktSpecialChar,ktSpecialCharError
 syn match ktCharacter "\v'\\''" contains=ktSpecialChar
 syn match ktCharacter "\v'[^\\]'"
